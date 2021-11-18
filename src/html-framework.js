@@ -31,6 +31,7 @@ let generatePage = (employeeList) => {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Email: <a href=mailto:${email}>${email}</a></li>
             <li class="list-group-item"> ${resolvedEmployee}</li> 
+            <li class="list-group-item">Employee ID: ${id}</li>
         </ul>
     </div>`;
   });
