@@ -53,10 +53,62 @@ const employeePrompts = [
         choices: ["Engineer", "Intern", "Manager"]
     },
 ]
+const engineerPrompt = [
+  {
+    type: "input",
+    name: "github",
+    message: "Enter Github Username: ",
+    validate: (githubName) => {
+      if (githubName) {
+        return true;
+      } else {
+        return "ERROR: ENTER A VALID GITHUB ACCOUNT";
+      }
+    },
+  },
+];
+const internPrompt = [
+  {
+    type: "input",
+    name: "school",
+    message: "Enter school attending/attended: ",
+    validate: (curSchool) => {
+      if (curSchool) {
+        return true;
+      } else {
+        return "ERROR: ENTER A VALID OFFICE NUMBER";
+      }
+    },
+  },
+];
+const managerPrompt = [
+  {
+    type: "input",
+    name: "office",
+    message: "Enter office number: ",
+    validate: (officeNumber) => {
+      if (officeNumber) {
+        return true;
+      } else {
+        return "ERROR: ENTER A VALID OFFICE NUMBER";
+      }
+    },
+  },
+];
 
 //FUNCTIONS
-function enterNewEmployee(){
-    inquirer.prompt(employeePrompts);
+function enterNewEmployee() {
+  inquirer.prompt(employeePrompts).then((employee) => {
+    if (employee.role === "Engineer") {
+      inquirer.prompt(engineerPrompt);
+    } else if (employee.role === "Intern") {
+      inquirer.prompt(internPrompt);
+    } else {
+      inquirer.prompt(managerPrompt);
+    }
+  });
 }
+
+
 
 enterNewEmployee();
