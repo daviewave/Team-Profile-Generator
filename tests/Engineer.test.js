@@ -24,6 +24,6 @@ describe("Employee", () => {
     expect(engineerTest.getEmail()).toEqual("daviewave@gmail.com");
   });
   it("HAS THE CORRECT GITHUB USERNAME: daviewave", () => {
-    expect(engineerTest.getGithub).toEqual("daviewave");
+    expect(engineerTest.getGithub()).toEqual("daviewave");
   });
 });
