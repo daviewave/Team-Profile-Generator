@@ -13,17 +13,17 @@ const engineerTest = new Engineer(
 //3. write test functions with asserted values
 describe("Employee", () => {
   it("HAS THE CORRECT NAME: DAVID", () => {
-    expect(engineerTest.name).toEqual("David");
+    expect(engineerTest.getName()).toEqual("David");
   });
 
   it("HAS THE CORRECT ID: 3", () => {
-    expect(engineerTest.id).toEqual(3);
+    expect(engineerTest.getID()).toEqual(3);
   });
 
   it("HAS THE CORRECT EMAIL ADDRESS: daviewave@gmail.com", () => {
-    expect(engineerTest.email).toEqual("daviewave@gmail.com");
+    expect(engineerTest.getEmail()).toEqual("daviewave@gmail.com");
   });
   it("HAS THE CORRECT GITHUB USERNAME: daviewave", () => {
-    expect(engineerTest.github).toEqual("daviewave");
+    expect(engineerTest.getGithub).toEqual("daviewave");
   });
 });
