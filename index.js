@@ -9,6 +9,7 @@ const Manager = require("./lib/Manager");
 
 //DATA
 const companyEmployees = []; //array to store user input
+
 const employeePrompts = [
   {
     type: "input",
@@ -95,6 +96,13 @@ const managerPrompt = [
     },
   },
 ];
+const addAnotherPrompt = [
+  {
+    type: "confirm",
+    name: "add",
+    message: "Would you like to add another Employee?",
+  },
+];
 
 //FUNCTIONS
 function enterNewEmployee() {
@@ -110,6 +118,7 @@ function enterNewEmployee() {
         );
         console.log(newEngineer);
         companyEmployees.push(newEngineer);
+        addAnotherEmployee();
       });
     } //Goes route of adding an Intern employee
     else if (employee.role === "Intern") {
@@ -122,6 +131,7 @@ function enterNewEmployee() {
         );
         console.log(newIntern);
         companyEmployees.push(newIntern);
+        addAnotherEmployee();
       });
     }
     //Goes route of adding an Manager employee
@@ -135,11 +145,21 @@ function enterNewEmployee() {
         );
         console.log(newManager);
         companyEmployees.push(newManager);
+        addAnotherEmployee();
       });
     }
   });
 }
 
-
+function addAnotherEmployee() {
+  inquirer.prompt(addAnotherPrompt).then((answer) => {
+    if (answer.add === true) {
+      enterNewEmployee();
+    } else {
+      console.log("LIST OF COMPANY EMPLOYEES: ");
+      console.log(companyEmployees);
+    }
+  });
+}
 
 enterNewEmployee();
