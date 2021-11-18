@@ -8,51 +8,51 @@ const Manager = require("./lib/Manager");
 
 
 //DATA
-const allEmployees = []; //array to store user input
+const companyEmployees = []; //array to store user input
 const employeePrompts = [
-    {
-        type: "input",
-        name: "name",
-        message: "Enter New Employee's Name: ",
-        validate: function (newName) {
-            if (newName) {
-                return true;
-            } else {
-                return 'ERROR: ENTER NEW EMPLOYEES NAME';
-            }
-        }
+  {
+    type: "input",
+    name: "name",
+    message: "Enter New Employee's Name: ",
+    validate: function (newName) {
+      if (newName) {
+        return true;
+      } else {
+        return "ERROR: ENTER NEW EMPLOYEES NAME";
+      }
     },
-    {
-        type: "input",
-        name: "id",
-        message: "Enter New Employee's ID: ",
-        validate: function (newID) {
-            if (newID) {
-                return true;
-            } else {
-                return 'ERROR: ENTER NEW EMPLOYEES ID';
-            }
-        }
+  },
+  {
+    type: "input",
+    name: "id",
+    message: "Enter New Employee's ID: ",
+    validate: function (newID) {
+      if (newID) {
+        return true;
+      } else {
+        return "ERROR: ENTER NEW EMPLOYEES ID";
+      }
     },
-    {
-        type: "input",
-        name: "email",
-        message: "Enter New Employee's Email Address: ",
-        validate: function (newEmail) {
-            if (newEmail) {
-                return true;
-            } else {
-                return 'ERROR: ENTER NEW EMPLOYEES ID';
-            }
-        }
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Enter New Employee's Email Address: ",
+    validate: function (newEmail) {
+      if (newEmail) {
+        return true;
+      } else {
+        return "ERROR: ENTER NEW EMPLOYEES ID";
+      }
     },
-    {
-        type: "list",
-        name: "role",
-        message: "Enter New Employee's Role at the Company: ",
-        choices: ["Engineer", "Intern", "Manager"]
-    },
-]
+  },
+  {
+    type: "list",
+    name: "role",
+    message: "Enter New Employee's Role at the Company: ",
+    choices: ["Engineer", "Intern", "Manager"],
+  },
+];
 const engineerPrompt = [
   {
     type: "input",
@@ -99,11 +99,24 @@ const managerPrompt = [
 //FUNCTIONS
 function enterNewEmployee() {
   inquirer.prompt(employeePrompts).then((employee) => {
+    //Goes route of adding an engineer employee
     if (employee.role === "Engineer") {
-      inquirer.prompt(engineerPrompt);
-    } else if (employee.role === "Intern") {
+      inquirer.prompt(engineerPrompt).then((answer) => {
+        const newEngineer = new Engineer(
+          employee.name,
+          employee.id,
+          employee.name,
+          answer.github
+        );
+        console.log(newEngineer);
+        companyEmployees.push(newEngineer);
+      });
+    } //Goes route of adding an Intern employee
+    else if (employee.role === "Intern") {
       inquirer.prompt(internPrompt);
-    } else {
+    }
+    //Goes route of adding an Manager employee
+    else {
       inquirer.prompt(managerPrompt);
     }
   });
