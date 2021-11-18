@@ -126,7 +126,16 @@ function enterNewEmployee() {
     }
     //Goes route of adding an Manager employee
     else {
-      inquirer.prompt(managerPrompt);
+      inquirer.prompt(managerPrompt).then((answer) => {
+        const newManager = new Manager(
+          employee.name,
+          employee.id,
+          employee.name,
+          answer.office
+        );
+        console.log(newManager);
+        companyEmployees.push(newManager);
+      });
     }
   });
 }
