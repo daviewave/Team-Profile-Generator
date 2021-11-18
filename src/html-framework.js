@@ -21,7 +21,7 @@ let generatePage = (employeeList) => {
     }
 
     //3. Create a card for each employee added in the array
-    let { name, role, email } = curEmployee;
+    let { name, role, email, id } = curEmployee;
     employeeCard += `
     <div class="card col" style="width: 18rem;">
         <div class="card-body card-header">
