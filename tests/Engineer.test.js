@@ -11,7 +11,7 @@ const engineerTest = new Engineer(
 );
 
 //3. write test functions with asserted values
-describe("Employee", () => {
+describe("Engineer", () => {
   it("HAS THE CORRECT NAME: DAVID", () => {
     expect(engineerTest.getName()).toEqual("David");
   });
