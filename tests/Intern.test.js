@@ -11,7 +11,7 @@ const internTest = new Intern(
 );
 
 //3. write test functions with asserted values
-describe("Employee", () => {
+describe("Intern", () => {
   it("HAS THE CORRECT NAME: DAVID", () => {
     expect(internTest.getName()).toEqual("David");
   });
@@ -23,7 +23,7 @@ describe("Employee", () => {
   it("HAS THE CORRECT EMAIL ADDRESS: daviewave@gmail.com", () => {
     expect(internTest.getEmail()).toEqual("daviewave@gmail.com");
   });
-  it("HAS THE CORRECT GITHUB USERNAME: daviewave", () => {
+  it("HAS THE CORRECT SCHOOL: Umass Amherst", () => {
     expect(internTest.getSchool()).toEqual("Umass Amherst");
   });
 });
