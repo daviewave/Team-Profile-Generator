@@ -7,11 +7,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
-    "test": "tests",
-    "start": "node index.js"
+    "test": "tests"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/daviewave/Team-Profile-Generator/issues"
   },
-  "homepage": "https://github.com/daviewave/Team-Profile-Generator#readme"
+  "homepage": "https://github.com/daviewave/Team-Profile-Generator#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
 }
