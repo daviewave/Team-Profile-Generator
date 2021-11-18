@@ -5,7 +5,8 @@ const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-
+const generateFramework = require("./src/html-framework");
+const generateHTML = require("./html-generator");
 
 //DATA
 const companyEmployees = []; //array to store user input
@@ -158,6 +159,9 @@ function addAnotherEmployee() {
     } else {
       console.log("LIST OF COMPANY EMPLOYEES: ");
       console.log(companyEmployees);
+      //Call functions to create the html file
+      let createEmployeeCards = generateFramework(companyEmployees);
+      generateHTML(createEmployeeCards);
     }
   });
 }
