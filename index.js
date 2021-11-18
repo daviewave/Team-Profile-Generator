@@ -113,7 +113,16 @@ function enterNewEmployee() {
       });
     } //Goes route of adding an Intern employee
     else if (employee.role === "Intern") {
-      inquirer.prompt(internPrompt);
+      inquirer.prompt(internPrompt).then((answer) => {
+        const newIntern = new Intern(
+          employee.name,
+          employee.id,
+          employee.name,
+          answer.school
+        );
+        console.log(newIntern);
+        companyEmployees.push(newIntern);
+      });
     }
     //Goes route of adding an Manager employee
     else {
